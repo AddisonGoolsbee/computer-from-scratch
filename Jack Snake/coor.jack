@@ -1,0 +1,22 @@
+class coor{
+	
+	field int x,y;
+
+	constructor coor new(int inputx,int inputy){
+		let x = inputx;
+		let y = inputy;
+		return this;
+	}
+
+	method int getx(){
+		return x;
+	}
+
+	method int gety(){
+		return y;
+	}
+
+
+
+
+}

@@ -1,0 +1,12 @@
+class Main {
+	function void main() {
+	var Game game;
+	do Screen.drawRectangle(505,0,511,255);
+	do Screen.drawRectangle(0,0,7,255);
+	do Screen.drawRectangle(0,249,511,255);
+	do Screen.drawRectangle(0,0,511,7);
+	let game = Game.new();
+	do game.run();
+	return;
+	}
+}

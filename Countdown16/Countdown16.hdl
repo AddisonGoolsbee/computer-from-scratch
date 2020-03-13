@@ -1,0 +1,13 @@
+CHIP Countdown16 {
+    IN in[16], load;
+    OUT out[16];
+
+    PARTS:
+Add16(a=RegOut,b=true,out=minusOne);
+Mux16(a=minusOne,b=in,sel=load,out=RegIn);
+Or8Way(in=zeroTest1,out=Or8Way1);
+Or8Way(in=zeroTest2,out=Or8Way2);
+Or(a=Or8Way1,b=Or8Way2,out=isZero);
+Or(a=load,b=isZero,out=RegLoad);
+Register(in=RegIn,load=RegLoad,out[0..7]=zeroTest1,out[8..15]=zeroTest2,out=RegOut,out=out);
+}

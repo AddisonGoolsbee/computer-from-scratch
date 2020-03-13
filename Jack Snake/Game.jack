@@ -1,0 +1,107 @@
+class Game {
+
+	field Snake head;
+	field int direction;
+	static int ax, ay;
+	
+	constructor Game new() {
+		let head = Snake.new(0,8,8);
+		let direction = 0;
+
+		do spawnApple();
+		//do Screen.drawRectangle(ax,ay,ax+10,ay+10);
+		return this;
+		
+	}
+
+	method boolean move() {
+		var boolean ret;
+		let ret = false;
+		if(direction = 1){let ret =  head.moveUp();}
+		if(direction = 2){let ret =  head.moveDown();}
+		if(direction = 3){let ret =  head.moveLeft();}
+		if(direction = 4){let ret = head.moveRight();}
+		do Sys.wait(75);
+		return ret;
+		
+	}
+
+	method void run() {
+		var char key;
+		var boolean dead;
+		let dead = false;
+
+		while(~dead){
+			//do spawnApple();
+			//do Screen.drawRectangle(ax,ay,ax+10,ax+10);
+			
+			while ((key=0)&(~dead)){
+				let key = Keyboard.keyPressed();
+				do reSpawnApple();
+				do checkApple(head);
+				let dead = move(); //this keeps the snake moving when a key isn't pressed
+				
+			}
+
+			if((key = 131)&(~(direction=2))){let direction = 1;} //up
+			if((key = 133)&(~(direction=1))){let direction = 2;} //down
+			if((key = 130)&(~(direction=4))){let direction = 3;} //left
+			if((key = 132)&(~(direction=3))){let direction = 4;} //right
+			if(key = 65){do head.incLength();} //a = incLength
+
+			while(~(key=0)&~dead){
+				let key = Keyboard.keyPressed();
+				do reSpawnApple();
+				do checkApple(head);
+				let dead = move();
+				
+			}
+
+		}
+
+		return;
+	}
+
+	method void checkApple(Snake s){
+		var int snakex,snakey;
+		let snakex = s.getx();
+		let snakey = s.gety();
+		if(((snakex+8)=ax)&((snakey+8)=ay)){
+			do Screen.setColor(false);
+			do Screen.drawCircle(ax,ay,7);
+			do Screen.setColor(true);
+			do head.draw(head.getx(),head.gety());
+			do spawnApple();
+			do s.incLength();
+		}
+		return;
+	}
+
+	method boolean checkDead(){
+		return false;
+	}
+
+	method void spawnApple(){
+		let ax = Random.between(1,31);
+		let ax = (16*ax);
+		let ay = Random.between(1,15);
+		let ay = (16*ay);
+		while(head.compareCoor(ax,ay)){
+			let ax = Random.between(1,31);
+			let ax = (16*ax);
+			let ay = Random.between(1,15);
+			let ay = (16*ay);
+		}
+		do Screen.setColor(true);
+		do Screen.drawCircle(ax,ay,7);
+		return;
+
+	}
+
+	method void reSpawnApple(){
+		do Screen.setColor(true);
+		do Screen.drawCircle(ax,ay,7);
+		return;
+	}
+	
+}

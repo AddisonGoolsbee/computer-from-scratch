@@ -1,0 +1,192 @@
+class Snake {
+	
+	field int length; //number of body segments, not including head
+	field int x, y;
+	field boolean dead;
+	static Array locx;
+	static Array locy;
+	static int i,size;
+	
+	constructor Snake new(int bodyLength, int inputx, int inputy) {
+		let length = bodyLength;
+		let x = inputx;
+		let y = inputy;
+		let size = 16;
+		do draw(x,y);
+		let locx = Array.new(300);
+		let locy = Array.new(300);
+		let locx[length] = x;
+		let locy[length] = y;
+		return this;
+	}
+
+	method void draw(int inputx, int inputy){
+		do Screen.setColor(true);
+		do Screen.drawRectangle(inputx,inputy,inputx+14,inputy+14);
+		return;
+	}
+
+	method void erase(int inputx, int inputy){
+		do Screen.setColor(false);
+		do Screen.drawRectangle(inputx,inputy,inputx+size,inputy+size);
+		return;
+	}
+
+	method boolean moveUp(){
+		
+
+		if(y>15){
+			if(~((locx[0]=0)&(locy[0]=0))){
+				do erase(locx[0],locy[0]);
+			} 
+			
+			let i = 0;
+			while(i<length){
+				let locx[i] = locx[i+1];
+				let locy[i] = locy[i+1];
+				let i = i+1;
+			}
+
+			let y = y-size;
+			let locy[length] = y;
+			let locx[length] = x;
+
+			let i = 0;
+			while(i<length){
+				if((locx[length]=locx[i])&(locy[length]=locy[i])){
+					return true;
+				}
+				let i = i+1;
+			}
+
+			do draw(locx[length],locy[length]);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	method boolean moveDown(){
+		
+
+		if(y<224){
+			if(~((locx[0]=0)&(locy[0]=0))){
+				do erase(locx[0],locy[0]);
+			} 
+			let i = 0;
+			while(i<length){
+				let locx[i] = locx[i+1];
+				let locy[i] = locy[i+1];
+				let i = i+1;
+			}
+
+			let y = y+size;
+			let locy[length] = y;
+			let locx[length] = x;
+
+			let i = 0;
+			while(i<length){
+				if((locx[length]=locx[i])&(locy[length]=locy[i])){
+					return true;
+				}
+				let i = i+1;
+			}
+
+			do draw(locx[length],locy[length]);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	method boolean moveLeft(){
+		
+
+		if(x>1){
+			if(~((locx[0]=0)&(locy[0]=0))){
+				do erase(locx[0],locy[0]);
+			} 
+			let i = 0;
+			while(i<length){
+				let locx[i] = locx[i+1];
+				let locy[i] = locy[i+1];
+				let i = i+1;
+			}
+
+			let x = x-size;
+			let locx[length] = x;
+			let locy[length] = y;
+
+			let i = 0;
+			while(i<length){
+				if((locx[length]=locx[i])&(locy[length]=locy[i])){
+					return true;
+				}
+				let i = i+1;
+			}
+
+			do draw(locx[length],locy[length]);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	method boolean moveRight(){
+		
+
+		if(x<480){
+			if(~((locx[0]=0)&(locy[0]=0))){
+				do erase(locx[0],locy[0]);
+			} 
+			let i = 0;
+			while(i<length){
+				let locx[i] = locx[i+1];
+				let locy[i] = locy[i+1];
+				let i = i+1;
+			}
+
+			let x = x+size;
+			let locx[length] = x;
+			let locy[length] = y;
+
+			let i = 0;
+			while(i<length){
+				if((locx[length]=locx[i])&(locy[length]=locy[i])){
+					return true;
+				}
+				let i = i+1;
+			}
+
+			do draw(locx[length],locy[length]);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	method int getx(){
+		return x;
+	}
+
+	method int gety(){
+		return y;
+	}
+
+	method boolean compareCoor(int inputx, int inputy){
+		var int j;
+		let j = 0;
+		while(j<length+1){
+			if((locx[j]=inputx)&(locy[j]=inputy)){
+				return true;
+			}
+			let j = j+1;
+		}
+		return false;
+	}
+
+	method int incLength(){
+		let length = length+1;
+		return length;
+	}
+}

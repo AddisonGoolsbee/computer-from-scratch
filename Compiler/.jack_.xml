@@ -1,0 +1,120 @@
+<class>
+ <keyword> class </keyword>
+ <identifier> Main </identifier>
+ <symbol> { </symbol>
+ <keyword> function </keyword>
+</class>
+<class>
+ <keyword> void </keyword>
+ <identifier> main </identifier>
+ <symbol> ( </symbol>
+ <symbol> ) </symbol>
+</class>
+<class>
+ <symbol> { </symbol>
+ <keyword> var </keyword>
+ <identifier> Array </identifier>
+ <identifier> a </identifier>
+</class>
+<class>
+ <symbol> ; </symbol>
+ <keyword> var </keyword>
+ <keyword> int </keyword>
+ <identifier> length </identifier>
+</class>
+<class>
+ <symbol> ; </symbol>
+ <keyword> var </keyword>
+ <keyword> int </keyword>
+ <identifier> i </identifier>
+</class>
+<class>
+ <symbol> , </symbol>
+ <identifier> sum </identifier>
+ <symbol> ; </symbol>
+ <keyword> let </keyword>
+</class>
+<class>
+ <identifier> length </identifier>
+ <symbol> = </symbol>
+ <identifier> Keyboard </identifier>
+ <symbol> . </symbol>
+</class>
+<class>
+ <identifier> readInt </identifier>
+ <symbol> ( </symbol>
+ <stringConstant> HOW MANY NUMBERS? </stringConstant>
+ <symbol> ) </symbol>
+</class>
+<class>
+ <symbol> ; </symbol>
+ <keyword> let </keyword>
+ <identifier> a </identifier>
+ <symbol> = </symbol>
+</class>
+<class>
+ <identifier> Array </identifier>
+ <symbol> . </symbol>
+ <identifier> new </identifier>
+ <symbol> ( </symbol>
+</class>
+<class>
+ <identifier> length </identifier>
+ <symbol> ) </symbol>
+ <symbol> ; </symbol>
+ <keyword> let </keyword>
+</class>
+<class>
+ <identifier> i </identifier>
+ <symbol> = </symbol>
+ <integerConstant> 0 </integerConstant>
+ <symbol> ; </symbol>
+</class>
+<class>
+ <keyword> while </keyword>
+ <symbol> ( </symbol>
+ <identifier> i </identifier>
+ <symbol> < </symbol>
+</class>
+<class>
+ <identifier> length </identifier>
+ <symbol> ) </symbol>
+ <symbol> { </symbol>
+ <keyword> let </keyword>
+</class>
+<class>
+ <identifier> a </identifier>
+ <symbol> [ </symbol>
+ <identifier> i </identifier>
+ <symbol> ] </symbol>
+</class>
+<class>
+ <symbol> = </symbol>
+ <identifier> Keyboard </identifier>
+ <symbol> . </symbol>
+ <identifier> readInt </identifier>
+</class>
+<class>
+ <symbol> ( </symbol>
+ <stringConstant> ENTER THE NEXT NUMBER: </stringConstant>
+ <symbol> ) </symbol>
+ <symbol> ; </symbol>
+</class>
+<class>
+ <keyword> let </keyword>
+ <identifier> i </identifier>
+ <symbol> = </symbol>
+ <identifier> i </identifier>
+</class>
+<class>
+ <symbol> + </symbol>
+ <integerConstant> 1 </integerConstant>
+ <symbol> ; </symbol>
+ <symbol> } </symbol>
+</class>
+<class>
+ <keyword> let </keyword>
+ <identifier> i </identifier>
+ <symbol> = </symbol>
+ <integerConstant> 0 </integerConstant>
+</class>
